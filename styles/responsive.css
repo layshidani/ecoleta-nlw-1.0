@@ -1,0 +1,36 @@
+/* qdo a largura da screen for < 900px este style passa a ser aplicado */
+@media (max-width: 900px) {
+  #page-home {
+    background-position-x: 70vw;
+  }
+
+  #page-home .content {
+    align-items: center;
+    text-align: center;
+  }
+
+  #page-home header a {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #page-home main {
+  align-items: center;
+  }
+}
+
+/* qdo a largura da screen for > 1700px este style passa a ser aplicado */
+@media (min-width: 1700px) {
+  #page-home {
+    background-position-x: 40vw;
+  }
+}
+
+/* qdo a altura da screen for < 760px este style passa a ser aplicado */
+@media (max-height: 760px) {
+  #page-home {
+  background-position-y: 200px;
+  }
+}
