@@ -6,18 +6,26 @@
 
   #page-home .content {
     align-items: center;
-    text-align: center;
+    text-align : center;
   }
 
   #page-home header a {
-    position: absolute;
-    bottom: 48px;
-    left: 50%;
+    position : absolute;
+    bottom   : 48px;
+    left     : 50%;
     transform: translateX(-50%);
   }
 
   #page-home main {
-  align-items: center;
+    align-items: center;
+  }
+
+  #page-search-results .cards {
+    grid-template-columns: 1fr;
+  }
+
+  #page-search-results .cards img {
+    height: 250px;
   }
 }
 
@@ -31,6 +39,6 @@
 /* qdo a altura da screen for < 760px este style passa a ser aplicado */
 @media (max-height: 760px) {
   #page-home {
-  background-position-y: 200px;
+    background-position-y: 200px;
   }
 }
