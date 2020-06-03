@@ -24,17 +24,47 @@ const getCities = (event) => {
   fetch(url)
     .then(res => res.json())
     .then(cities => {
-      cities.forEach(city => citySelect.innerHTML += `<option value='${city.id}'>${city.nome}</option>`);
+      cities.forEach(city => citySelect.innerHTML += `<option value='${city.nome}'>${city.nome}</option>`);
 
       citySelect.disabled = false;
     })
 };
 
 const clearCitySelected = (citySelect) => {
-  citySelect.innerHTML = '<option>Selecione a Cidade</option>';
+  citySelect.innerHTML = '<option value>Selecione a Cidade</option>';
   citySelect.disabled = true;
 };
 
 document
   .querySelector('select[name=uf]')
   .addEventListener('change', getCities);
+
+const itemsToCollect = document.querySelectorAll('.items-grid li');
+
+for (let item of itemsToCollect) {
+  item.addEventListener('click', handleSelectedItem);
+}
+
+const collectedItems = document.querySelector("input[name=items]");
+let selectedItems = [];
+
+function handleSelectedItem() {
+  const itemLi = event.target;
+  itemLi.classList.toggle('selected');
+  const itemId = itemLi.dataset.id;
+  const alredySelected = selectedItems.findIndex(item => item === itemId);
+
+  if (alredySelected >= 0) {
+    const filterItems = selectedItems.filter(item => {
+      const itemIsDifferent = item !== itemId;
+      return itemIsDifferent;
+    })
+
+    selectedItems = filterItems;
+
+  } else {
+    selectedItems.push(itemId);
+  }
+
+  collectedItems.value = selectedItems;
+}
