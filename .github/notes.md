@@ -88,6 +88,10 @@ itemLi.classList.toggle('selected');
 ---
 # BACK-END
 
+## Node
+
+`require()`: requisita/pega um modulo de `node_modules`
+
 ## NPM
 
 Iniciar o projeto e incluir o arquivo `package.json`
@@ -128,6 +132,12 @@ server.listen(3000);
 ### Configuração server
 
 - instalar o `express`
+    > O Express.js é um framework Node que pode ser comparado com o Laravel para PHP, ele cria abstrações de rotas, middlewares e muitas outras funções para facilitar a criação tanto de API's quanto SPA's.
+
+    > Um exemplo bacana de uso dele é a exposição de uma API simples de get que pode ser feita com poucos cliques em menos de 10 minutos.
+
+    > [stackoverflow](https://pt.stackoverflow.com/questions/149296/pra-que-server-o-expressjs)
+
 - comando para rodar
     ```bash
     node src/server.js
@@ -146,3 +156,37 @@ server.listen(3000);
 
     - add o comando no package.json em scripts para poder executar com o comando `npm run start`
 - não esquecer de atualizar nos arquivos html, o href, já que agora não estamos direcionando para os arquivos em si diretamente, mas sim para as rotas que farão esse trabalho.
+
+## Template engine
+
+> Nunjucks é uma templating engine, uma forma de nós rendeziamos e manipularmos Html com contéudo Javascript facilmente. [medium.com](https://medium.com/@kaique.kng/configurando-o-nunjucks-5333fee34c5b)
+
+instalar `nunjucks`
+
+```bash
+npm i nunjucks
+```
+
+por ex no html:
+
+index.html
+```html
+{% block styles %}
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/create-point.css">
+{% block styles %}
+```
+
+create-point.html:
+```html
+{% block styles %}
+<link rel="stylesheet" href="/styles/create-point.css">
+{% endblock styles %}
+```
+
+como se fosse em create-point.html:
+```html
+<link rel="stylesheet" href="/styles/create-point.css">
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/create-point.css">
+```
