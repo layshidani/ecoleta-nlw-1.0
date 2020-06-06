@@ -191,3 +191,29 @@ como se fosse em create-point.html:
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/styles/create-point.css">
 ```
+
+### SQLITE
+
+```js
+// pegar os dados do banco de dados
+  db.all(`SELECT * FROM places WHERE city LIKE '%${search}%'`, function (err, rows) {
+    if (err) {
+      return console.log(err);
+    }
+
+    const total = rows.length;
+
+    // mostrar a página html com os dados do banco de dados
+    return res.render('search-results.html', { places: rows, total: total });
+  })
+```
+
+aqui, `city LIKE '%${search}%'`,
+
+`LIKE '%valor%'` -> procura uma string que tenha o valor
+
+então se pesquisarmos **São**, por exemplo, ele encontrará **São Paulo**, **São Pedro**, etc.
+
+Se fosse  `city = '${search}'`, ele procura por valor exatamente igual.
+
+Então, a pesquisa por **São**, por exemplo, não encontraria nenhum resultado.
