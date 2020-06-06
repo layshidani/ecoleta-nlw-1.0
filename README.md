@@ -9,3 +9,10 @@
 > O NLW é uma semana prática com muito código, desafios, networking e um único objetivo: te levar para o próximo nível.
 > [Next Level Week 1.0 - Rocketseat](https://nextlevelweek.com/)
 
+## Tecnologias utilizadas
+
+- JavaScript
+- Nunjucks (Template Engine)
+- Express
+- NodeJS
+- SQLite3
